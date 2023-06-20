@@ -5,6 +5,7 @@ from . import views
 from django.urls import path
 from djangoapp.views import static_page_view
 from django.views.generic import TemplateView
+from .views import login
 
 
 app_name = 'djangoapp'
@@ -20,10 +21,11 @@ urlpatterns = [
     # path for registration
 
     # path for login
+    path('login/', TemplateView.as_view(template_name='djangoapp/login.html'), name='login'),
 
     # path for logout
-
-    path(route='', view=views.get_dealerships, name='index'),
+    path('logout/', TemplateView.as_view(template_name='djangoapp/logout.html'), name='logout'),
+    path('registeration/', TemplateView.as_view(template_name='djangoapp/registration.html'), name='registration'),
 
     # path for dealer reviews view
 
